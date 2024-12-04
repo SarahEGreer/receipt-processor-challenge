@@ -66,7 +66,7 @@ docker build -t receipt-processor .
 docker run -p 8080:8080 receipt-processor
 ```
 
-3. **Access the Application**
+2. **Access the Application**
 - The application will be available at http://localhost:8080 which you may use a baseURL in Postman
 
 ### Running Locally (Without Docker)
@@ -78,7 +78,7 @@ git clone git@github.com:SarahEGreer/receipt-processor-challenge.git
 cd receipt-processor-challenge
 ```
 
-3. **Build Project**
+2. **Build Project**
 In your terminal run:
 ```
 mvn clean package
@@ -274,7 +274,7 @@ In your terminal run:
    docker build -t receipt-processor .
 ```
 
-3. **Run the Tests**:
+2. **Run the Tests**:
 In your terminal run:
 ```
   docker run --rm receipt-processor mvn test
