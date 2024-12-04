@@ -16,6 +16,12 @@ public class ReceiptController {
         this.receiptService = receiptService;
     }
 
+//    @PostMapping("/process")
+//    public ResponseEntity<Map<String, String>> processReceipt(@RequestBody Receipt receipt){
+//        String id = receiptService.processReceipt(receipt);
+//        return ResponseEntity.ok(Map.of("id", id));
+//    }
+
     @PostMapping("/process")
     public ResponseEntity<Map<String, String>> processReceipt(@RequestBody Receipt receipt){
         String id = receiptService.processReceipt(receipt);

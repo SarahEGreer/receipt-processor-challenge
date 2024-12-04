@@ -29,7 +29,7 @@ public class ReceiptService {
     public int getPoints(String id) {
         Receipt receipt = receiptData.get(id);
         if (receipt == null) {
-            throw new ReceiptNotFoundException("No receipt found with ID: " + id);
+            throw new ReceiptNotFoundException("No receipt found for that id");
         }
         return pointsCalculator.calculatePoints(receipt);
     }
