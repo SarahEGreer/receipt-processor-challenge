@@ -45,17 +45,17 @@ If you are running the application locally (without Docker), you will need:
 1. **To Start**
 In your terminal run:
 ```
-- docker-compose up
-```
-
-2. **To End**
-In your terminal run:
-```
-- docker-compose down
+docker-compose up
 ```
   
-3. **Access the Application**
+2. **Access the Application**
 - The application will be available at http://localhost:8080 which you may use a baseURL in Postman
+
+3. **To End**
+In your terminal run:
+```
+docker-compose down
+```
 
 ### Running With Docker
 
@@ -63,11 +63,18 @@ In your terminal run:
 In your terminal run:
 ```
 docker build -t receipt-processor .
-docker run -p 8080:8080 receipt-processor
+docker run -d --name receipt-processor -p 8080:8080 receipt-processor
 ```
 
 2. **Access the Application**
 - The application will be available at http://localhost:8080 which you may use a baseURL in Postman
+
+3. **To End**
+In your terminal run:
+```
+docker stop receipt-processor
+docker rm receipt-processor
+```
 
 ### Running Locally (Without Docker)
 
@@ -266,24 +273,18 @@ This project includes the following types of tests to ensure functionality and r
   - Receipts with missing or invalid fields (e.g., null or improperly formatted dates).
   - Receipts with empty or zero items.
 
-### **Running Tests with Docker**
+### **Running Tests with Docker Compose**
 
-1. **Build the Docker Image**:
 In your terminal run:
 ```
-   docker build -t receipt-processor .
+docker-compose run --rm test
 ```
 
-2. **Run the Tests**:
-In your terminal run:
-```
-  docker run --rm receipt-processor mvn test
-```
 
 ### **Running Tests Locally**
 
 If you have Maven installed on your machine, you can run the tests locally:
-1. In your terminal run:
+In your terminal run:
 ```
    mvn test  
 ```
