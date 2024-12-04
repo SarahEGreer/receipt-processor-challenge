@@ -136,6 +136,16 @@ java -jar target/receipt-processor-0.0.1-SNAPSHOT.jar
 }
 ```
 
+### **Error Response**
+
+- **Status Code**: `400 Bad Request`
+- **Response Body**:
+```json
+{
+  "error": "The receipt is invalid"
+}
+```
+
 ### **2. Get Points**
 
 - **Endpoint**: `/receipts/{id}/points`
@@ -159,7 +169,7 @@ java -jar target/receipt-processor-0.0.1-SNAPSHOT.jar
 - **Response Body**:
 ```json
 {
-  "error": "No receipt found with ID: `provided-id`"
+  "error": "No receipt found for that id"
 }
 ```
 
