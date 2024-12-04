@@ -1,6 +1,7 @@
 package com.fetchproject.receipt_processor.service;
 
 
+import com.fetchproject.receipt_processor.exception.InvalidReceiptException;
 import com.fetchproject.receipt_processor.exception.ReceiptNotFoundException;
 import com.fetchproject.receipt_processor.model.Receipt;
 import com.fetchproject.receipt_processor.util.PointsCalculator;
@@ -21,6 +22,9 @@ public class ReceiptService {
     }
 
     public String processReceipt(Receipt receipt){
+        if(receipt == null || receipt.getRetailer() == null || receipt.getPurchaseDate() == null || receipt.getPurchaseTime() == null || receipt.getItems() == null || receipt.getTotal() == null || receipt.getItems().isEmpty()){
+            throw new InvalidReceiptException("The receipt is invalid.");
+        }
         String id = UUID.randomUUID().toString();
         receiptData.put(id, receipt);
         return id;

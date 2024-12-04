@@ -259,7 +259,18 @@ This project includes the following types of tests to ensure functionality and r
     - Handling edge cases like null or empty fields in receipts.
     - Validating rules such as round dollar amounts, item description lengths, and purchase times.
 
-### **2. Integration Tests**
+### **2. Service Tests**
+**Purpose**: Ensure that the service layer behaves as expected and handles receipt processing logic correctly.
+
+**Examples**:
+- Tests for the `ReceiptService` class to verify:
+    - Receipts with valid data are stored and processed correctly.
+    - Requests with invalid data throw appropriate exceptions, such as:
+        - `InvalidReceiptException` for receipts with missing or empty items.
+        - `ReceiptNotFoundException` for non-existent receipt IDs.
+    - Points are accurately calculated using the service logic.
+
+### **3. Integration Tests**
 - **Purpose**: Verify the interaction between components, focusing on API endpoints.
 - **Examples**:
   - Tests for the `ReceiptController` to ensure:
@@ -267,7 +278,7 @@ This project includes the following types of tests to ensure functionality and r
     - Points can be retrieved for valid receipt IDs via `GET /receipts/{id}/points`.
     - Appropriate error responses (e.g., `404 Not Found`) are returned for invalid receipt IDs.
 
-### **3. Edge Case Testing**
+### **4. Edge Case Testing**
 - **Purpose**: Test unusual or invalid inputs to ensure the application handles them gracefully.
 - **Examples**:
   - Receipts with missing or invalid fields (e.g., null or improperly formatted dates).
